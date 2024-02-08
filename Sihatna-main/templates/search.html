@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1 style="text-align: center;">Résultats de la recherche pour "{{ query }}"</h1>
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="p-4 mb-5 bg-body rounded col-md-8">
+        <center >
+    
+    {% if results.forums %}
+        <h2>Forums</h2>
+        <ul>
+            {% for forum in results.forums %}
+                <li><a href="{{ forum.get_url }}">{{ forum.title }}</a></li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    {% if results.posts %}
+        <h2>Posts</h2>
+        <ul>
+            {% for post in results.posts %}
+                <li><a href="{{ post.get_url }}">{{ post.title }}</a></li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    {% if results.replies %}
+        <h2>Réponses</h2>
+        <ul>
+            {% for reply in results.replies %}
+                <li>{{ reply.content|safe }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+        </center>
+    </div>
+</div>
+
+    {% if not results.forums and not results.posts and not results.replies %}
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="p-4 mb-5 bg-body rounded col-md-8">
+            <center >
+                <h4 "p-4 mb-5">L'Element que vous cherchez n'existe pas</h4>
+            </center>
+        </div>
+    </div>
+    {% endif %}
+
+{% endblock %}

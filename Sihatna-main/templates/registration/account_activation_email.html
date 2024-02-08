@@ -1,0 +1,16 @@
+{% load static %}
+
+{% autoescape off %}
+Hello {{ user.pseudonym }},
+
+Veuillez cliquer sur le lien ci-dessous pour activer votre compte :
+{% block reset_link %}
+<a href="http://{{ domain }}{% url 'accounts:activate' uidb64=uid token=token %}">Activate your account</a>
+{% endblock %}
+
+Si vous ne vous êtes pas inscrit sur notre site, veuillez ignorer ce message.
+
+Meilleures salutations,
+L'équipe de Sihatna
+
+{% endautoescape %}

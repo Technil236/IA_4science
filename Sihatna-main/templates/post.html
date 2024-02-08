@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container mx-auto">
+  <div class="row content">
+    <div class="col-sm-12 "> <!-- Utilisez la classe mx-auto pour centrer tout le contenu -->
+      <h2><strong style="color: #9370db";>{{post.title}}</strong></h2>
+      <hr>
+      <h5> Posté par {{post.author.pseudonym}} </h5>
+      <h5><span class="glyphicon glyphicon-time"></span> {{post.date|date}} </h5>
+      <br/>
+      <p>{{post.content|safe}}</p>
+      <br><br>
+      <hr>
+
+      <form action="." method="post">
+        {% csrf_token %}
+        <div class="form-group mx-auto d-flex align-items-center">
+            <textarea class="form-control rounded-pill" style="width:30%" rows="1" required placeholder="Répondre" name="reply"></textarea>
+            <button class="btn btn-light rounded-pill ml-2" type="submit">
+              <span class="bi bi-send" id="send-icon"></span>
+          </button>
+        </div>
+    </form>
+    <br><br>
+      
+      <p>{{post.num_replies}} Reponses</p><br>
+      
+      <div class="row">
+        {% for reply in replies %}
+        <div class="col-sm-2 mb-3 text-center ">
+          <img src="{{reply.author.avatar.image_url}}" class="img-circle" height="50" width="50" alt="Avatar">
+        </div>
+        <div class="col-sm-10  rounded-pill" style="background-color: $cyan-100">
+          <p>{{reply.content}}</p>
+          <br>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

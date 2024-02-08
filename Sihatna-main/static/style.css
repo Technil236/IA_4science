@@ -1,0 +1,151 @@
+      /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 50px;
+    }
+
+
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+    /* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: #f2f2f2;
+      padding: 25px;
+    }
+    
+  .carousel-inner img {
+      width: 100%; /* Set width to 100% */
+      margin: auto;
+      min-height:200px;
+  }
+
+  /* Hide the carousel text when the screen is less than 600 pixels wide */
+  @media (max-width: 600px) {
+    .carousel-caption {
+      display: none; 
+    }
+  }
+
+
+  /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
+  .row.content {height: 1500px}
+    
+  /* Set gray background color and 100% height */
+  .sidenav {
+    background-color: #f1f1f1;
+    height: 100%;
+  }
+  
+  /* Set black background color, white text and some padding */
+  footer {
+    background-color: #555;
+    color: white;
+    padding: 15px;
+  }
+  
+  /* On small screens, set height to 'auto' for sidenav and grid */
+  @media screen and (max-width: 767px) {
+    .sidenav {
+      height: auto;
+      padding: 15px;
+    }
+    .row.content {height: auto;} 
+  }
+
+  .col-sm-4 img {
+    width: 50%;
+    height: auto;
+}
+
+.image {
+  border: 1px solid #34495e;
+  width: 200px;
+  height: 200px;
+}
+
+.image-cover {
+  object-fit: cover;
+  object-position: right top;
+}
+
+.well {
+  height: 70px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+
+.my-navbar {
+  background-color: #4fc3f7;
+}
+
+.navbar-brand {
+  font-family: 'Playpen Sans', cursive;
+}
+
+#intro {
+  /* Margin to fix overlapping fixed navbar */
+  margin-top: 58px;
+}
+@media (max-width: 991px) {
+  #intro {
+    /* Margin to fix overlapping fixed navbar */
+    margin-top: 45px;
+  }
+}
+
+.centered-content {
+  text-align: center; /* Centre le contenu horizontalement */
+  margin: 0 auto; /* Centre le contenu verticalement */
+}
+
+
+.container {
+  padding: 2rem 0rem;
+}
+
+@media (min-width: 576px){
+  .modal-dialog {
+    max-width: 400px;
+    
+    .modal-content {
+      padding: 1rem;
+    }
+  }
+}
+
+.post-content {
+  overflow: hidden;
+  max-height: 100px; /* Ajustez la hauteur maximale selon vos besoins */
+  text-overflow: ellipsis; /* Ajoutez des points de suspension (...) en cas de débordement de texte */
+  white-space: nowrap; /* Empêche le texte de passer à la ligne */
+}
+
+.custom-title {
+  font-weight: bold;
+  color: #9370db;
+}
+
+a {
+  text-decoration: none;
+}
+
+
+.custom-card {
+  min-height: 300px; /* Ajustez la hauteur minimale selon vos préférences */
+  background-image: url('{{ forum.image.url }}'); /* Spécifiez le chemin de votre image */
+  background-size: cover; /* Ajustez la taille de l'image à la card */
+  background-position: center center; /* Centrez l'image horizontalement et verticalement */
+  background-repeat: no-repeat; /* Empêchez la répétition de l'image */
+  padding: 20px; /* Espace autour du contenu de la card */
+  color: #fff; /* Couleur du texte */
+}
+
+.side-label {
+  width: 45px;
+}

@@ -1,0 +1,15 @@
+<div class="container text-center mt-4">    
+    <div class="row">
+      <div class="col-md-3">
+        <div class="card mb-3 shadow bg-white">
+          <div class="card-body">
+            {% if request.user.is_authenticated %}
+            <h3 class="card-title"><a href="{% url 'accounts:profile' request.user.pk %}" style="text-decoration: none; color: #9370db;">{{ request.user.pseudonym }}</a></h3>
+            <img src="{{ request.user.avatar.image_url }}" class="img-fluid rounded-circle" alt="Avatar" height="65" width="65">
+            {% else %}
+            <h2 class="card-title">Visiteur</h2>
+            {% endif %}
+          </div>
+        </div>
+  
+      </div>

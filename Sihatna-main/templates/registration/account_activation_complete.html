@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block title %}Email d'activation envoyée{% endblock %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+    <p>Bienvenue, {{ user.pseudonym }}! Votre compte a été activé avec succès. Vous êtes maintenant connecté !</p>
+    {% endif %}
+{% endblock %}

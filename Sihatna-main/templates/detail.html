@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block content %}
+  
+{% include 'user_info.html' %}
+    <div class="col-md-7">
+      <div class="card mb-3 shadow bg-white">
+        <div class="card-body">
+          <h3 class="custom-title">{{forum.title}}</h3>
+          <p> {{forum.description}} </p>  
+        </div>
+      </div>
+      <style>
+        .fixed-height-card {
+            height: 150px; /* Définissez la hauteur fixe que vous souhaitez */
+            overflow: hidden;
+        }
+    </style>
+    
+    <div class="row">
+        <div class="col-md-3">
+            {% for post in posts %}
+            <div class="card mb-3 bg-white border-0 fixed-height-card">
+                <div class="card-body">
+                  <a href="{{ post.get_url }}" style="text-decoration: none; color: black;">
+                    <p>{{ post.author.pseudonym }}</p>
+                    <img src="{{ post.author.avatar.image_url }}" class="img-fluid rounded-circle" alt="Avatar" height="55" width="55">
+                  </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="col-md-9">
+          {% for post in posts %}
+          <div class="card mb-3 bg-white border-0 fixed-height-card">
+              <div class="card-body">
+                <h4 class="custom-title"><a href="{{ post.get_url }}" style="text-decoration: none; color: #9370db;">{{post.title}}</a></h4>
+                <div class="post-content">{{ post.content }}</div>
+              </div>
+          </div>
+          {% endfor %}
+      </div>     
+    </div>
+    
+        {% if request.user.is_authenticated %}
+        <div style="font-size:20px;font-weight300px;margin-left:100px;"><a href="{% url 'create_post' %}" style="text-decoration: none; color: #9370db;">Nouvelle publication</a></div>
+        {% endif %}
+    </div>
+
+    <div class="col-md-2">
+      <div class="card mb-3 shadow bg-white">
+        <div class="card-body">
+          <h6 class="custom-title">POST LE PLUS ACTIF EN CE MOMENT</h6>
+          <p><strong><a href="{{ post.get_url }}">{{most_active_post.title}}</a></strong></p>
+          <h3>Auteur </h3>
+          <img src="{{most_active_post.author.avatar.image_url}}" class="img-fluid rounded-circle" alt="Avatar" height="55" width="55">          <p><strong>{{most_active_post.author.pseudonym}}</strong></p>
+          <p>{{ most_active_post.nom_replies }} Réponses</p>
+          <a href="#" class="btn btn-primary">Info</a>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}

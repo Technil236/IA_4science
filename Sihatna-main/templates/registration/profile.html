@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-4 text-center">
+  <div class="row">
+    <div class="col-md-4 mx-auto">
+      <div class="card mb-3 shadow p-3 mb-5 bg-white rounded">
+        <div class="card-body text-center">
+          {% if request.user.is_authenticated %}
+          <a href="{% url 'accounts:profile' request.user.pk %}" class="text-decoration-none">
+            <img src="{{ request.user.avatar.image_url }}" class="img-fluid rounded-circle avatar" alt="Avatar">
+            <h4 class="card-title">{{ request.user.pseudonym }}</h4>
+          </a>
+          {% else %}
+          <h2 class="card-title">Visiteur</h2>
+          {% endif %}
+          <p class="card-text">
+            {% if request.user.is_authenticated %}
+            {{request.user.sex}}<br>
+            Inscrit le {{request.user.date_joined|date:"F d, Y"}}<br>
+            {{request.user.post}} Posts<br>
+            {{nom_replies}} Réponses
+            {% else %}
+            Bienvenue
+            {% endif %}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,11 @@
+
+coolname==2.2.0
+Django==4.2.6
+django-admin-argon-dashboard==1.0.16
+django-extensions==3.2.3
+psycopg2==2.8.4
+pyOpenSSL==19.0.0
+
+
+
+
