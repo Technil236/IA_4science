@@ -1,0 +1,121 @@
+    # Project definitions (do not edit)
+Task: PenguinAnnotation
+scorer: nil
+date: Feb12
+multianimalproject: true
+identity: false
+
+    # Project path (change when moving around)
+project_path: /var/autofs/misc/home/nil/Desktop/PenguinAnnotation-nil-2024-02-12
+
+    # Annotation data set configuration (and individual video cropping parameters)
+video_sets:
+  /var/autofs/misc/home/nil/Videos/Nil_penguinVideos/walk53.mp4:
+    crop: 0, 1920, 0, 1080
+  /var/autofs/misc/home/nil/Videos/Nil_penguinVideos/flap2.mp4:
+    crop: 0, 1920, 0, 1080
+  /var/autofs/misc/home/nil/Videos/Nil_penguinVideos/stand75.mp4:
+    crop: 0, 1920, 0, 1080
+  /var/autofs/misc/home/nil/Videos/Nil_penguinVideos/2penguins.mp4:
+    crop: 0, 1920, 0, 1080
+individuals:
+- ID1
+- ID2
+- ID3
+- ID4
+- ID5
+- ID6
+- ID7
+- ID8
+- ID9
+- ID10
+- ID11
+- ID12
+- ID13
+- ID14
+- ID15
+- ID16
+- ID17
+- ID18
+- ID19
+- ID20
+uniquebodyparts: []
+multianimalbodyparts:
+- Head
+- Beak
+- Body_top
+- RFlipper_top
+- LFlipper_top
+- RFlipper_mid
+- LFlipper_mid
+- RFlipper_tip
+- LFlipper_tip
+- Body_mid
+- Body_bottom
+- Tail_tip
+- RFoot
+- LFoot
+bodyparts: MULTI!
+
+    # Fraction of video to start/stop when extracting frames for labeling/refinement
+start: 0
+stop: 1
+numframes2pick: 20
+
+    # Plotting configuration
+skeleton:
+- - Head
+  - Beak
+- - Head
+  - Body_top
+- - Body_top
+  - RFlipper_top
+- - Body_top
+  - LFlipper_top
+- - RFlipper_top
+  - RFlipper_mid
+- - RFlipper_mid
+  - RFlipper_tip
+- - LFlipper_top
+  - LFlipper_mid
+- - LFlipper_mid
+  - LFlipper_tip
+- - Body_top
+  - Body_mid
+- - Body_mid
+  - Body_bottom
+- - Body_bottom
+  - Tail_tip
+- - Body_bottom
+  - RFoot
+- - Body_bottom
+  - LFoot
+skeleton_color: black
+pcutoff: 0.6
+dotsize: 12
+alphavalue: 0.7
+colormap: rainbow
+
+    # Training,Evaluation and Analysis configuration
+TrainingFraction:
+- 0.95
+iteration: 0
+default_net_type: dlcrnet_ms5
+default_augmenter: multi-animal-imgaug
+default_track_method: ellipse
+snapshotindex: -1
+batch_size: 8
+
+    # Cropping Parameters (for analysis and outlier frame detection)
+cropping: false
+    #if cropping is true for analysis, then set the values here:
+x1: 0
+x2: 640
+y1: 277
+y2: 624
+
+    # Refinement configuration (parameters from annotation dataset configuration also relevant in this stage)
+corner2move2:
+- 50
+- 50
+move2corner: true
